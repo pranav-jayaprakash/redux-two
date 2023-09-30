@@ -1,42 +1,42 @@
-import React,{useState} from 'react';
-import { LoginData } from './Api';
-import {useDispatch} from 'react-redux';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { LoginData } from "./Api";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Login() {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
 
-    const [email, setemail] = useState('')
-    const [password, setpassword] = useState('')
-
-    const display =(e)=>{
-        e.preventDefault()
-        LoginData({email,password},dispatch)
-
-    }
+  const display = (e) => {
+    e.preventDefault();
+    LoginData({ email, password }, dispatch);
+  };
 
   return (
     <div>
-        <Link>
-        <form onSubmit={display}>
-        <input type="text" placeholder='email' value={email} onChange={(e)=>setemail(e.target.value)}/>
-        <input type="text" placeholder='password' value={password} onChange={(e)=>setpassword(e.target.value)}/>
+      <form onSubmit={display}>
+        <input
+          type="text"
+          placeholder="email"
+          value={email}
+          onChange={(e) => setemail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="password"
+          value={password}
+          onChange={(e) => setpassword(e.target.value)}
+        />
         <input type="submit" />
-        </form>
+      </form>
 
-
-            
-
-        <div>
-            Dont have an account
-        </div>
-
-        </Link>
-        
+      <Link to={"Signup"}>
+        <div>Dont have an account</div>
+      </Link>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

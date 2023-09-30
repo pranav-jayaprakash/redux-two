@@ -8,16 +8,16 @@ import DataDisplay from './components/DataDisplay';
 
 function App() {
 
-  const router = createBrowserRouter([
- {path:'/' ,element:<Login/>},
- {
-  path:'Signup',element:<Signup/>
- },{
-  path:'Home',element:<DataDisplay/>
- }
-  ])
+  const router = createBrowserRouter([{
+    path:'/',element:<Login/>
+  },{
+    path:'Signup',element:<Signup/>
+  },{
+    path:'Home',element:<DataDisplay/>
+  }])
   return (
     <RouterProvider router={router}/>
+    
   );
 }
 
